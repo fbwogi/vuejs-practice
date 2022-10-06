@@ -1,0 +1,53 @@
+ <div id="app">
+  <v-app id="inspire">
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      :items-per-page="5"
+    >
+      <template #header.actions>
+        <v-menu    
+          :close-on-content-click="true"
+          offset-y
+          :transition="false"
+        >
+        <template v-slot:activator="{ on, attrs}">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-format-list-bulleted-square</v-icon>
+          </v-btn>
+        </template>
+          
+        <v-card>
+          <v-list dense>
+            <v-list-item-group
+              v-model="selectedItem"
+            >
+              <v-list-item v-for="(item, i) in images" :key="i" >
+
+
+                <v-list-item-avatar> 
+                  <v-img max-height="200"
+                         max-width="200"
+                         :src="item.src"> </v-img>
+                </v-list-item-avatar> 
+
+
+
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.name"></v-list-item-title>
+                </v-list-item-content>
+
+              </v-list-item>
+              
+            </v-list-item-group>
+
+
+          </v-list>
+
+        </v-card>
+        
+        
+      </template>
+    </v-data-table>
+  </v-app>
+</div>
